@@ -1,32 +1,24 @@
-import { useReducer } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import './App.css'
-import List from './components/List'
 
 export default function App() {
-  const reducer = (state, action) => {
-    if (action.type === 'increment') {
-      return { count: state.count + 1 }
-    }
-    if (action.type === 'decrement') {
-      return { count: state.count - 1 }
-    }
-    if (action.type === 'reset') {
-      return { count: 0 }
-    }
-  }
-  const [value, dispatch] = useReducer(reducer, { count: 0 });
+  const [list, setList] = useState([1, 2, 3, 4, 5]);
 
-  const handleClick = (type) => {
-    dispatch(type);
-  }
+  const handleUseCallbackExample = useCallback(() => {
+    setList([...list, 6]);
+  }, []);
+
+  useEffect(() => {
+    handleUseCallbackExample();
+    console.log('render');
+  }, [handleUseCallbackExample]);
+
+  const handleClick = () => setList([])
 
   return (
     <div className='App'>
-      <header>
-        <p>{value.count}</p>
-        <button onClick={() => handleClick({ type: 'increment' })}>Add</button>
-        <button onClick={() => handleClick({ type: 'decrement' })}>Minus</button>
-        <button onClick={() => handleClick({ type: 'reset' })}>Reset</button>
+      <header className='App-header'>
+        <button onClick={handleClick}>Go</button>
       </header>
     </div>
   )
