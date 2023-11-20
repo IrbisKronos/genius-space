@@ -3,6 +3,7 @@ import Checkbox from './Checkbox';
 import TextInput from './TextInput';
 import RadioButtons from './Radio/RadioButtons';
 import InputData from '../InputData';
+import CustomSelect from './CustomSelect';
 
 export default function ControlledForm() {
   const [value, setValue] = useState({
@@ -10,6 +11,7 @@ export default function ControlledForm() {
     email: '',
     checkbox: false,
     radio: '',
+    select: 'option 1',
   });
 
   const handleSubmit = (event) => {
@@ -22,19 +24,21 @@ export default function ControlledForm() {
       <form onSubmit={handleSubmit}>
         <TextInput
           type="text"
-          name="firstName"
-          id="firstName"
+          name="name"
+          id="name"
           setValue={setValue}
           value={value.name}
           label="Name"
+          objectKey="firstName"
         />
         <TextInput
-          type="email"
+          type="text"
           name="email"
           id="email"
           setValue={setValue}
           value={value.email}
           label="Email"
+          objectKey="email"
         />
         <Checkbox
           id="checkbox"
@@ -42,6 +46,7 @@ export default function ControlledForm() {
           setValue={setValue}
           checked={value.checkbox}
         />
+        <CustomSelect value={value} setValue={setValue} />
         <RadioButtons
           setValue={setValue}
           value={value}
