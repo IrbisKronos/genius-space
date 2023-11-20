@@ -1,16 +1,16 @@
 {
-	"contacts": [
-		{
-			"id": 1,
-			"name": "Harry",
-			"lastName": "Potter",
-			"about": "Lorem, dolor sit amet consectetur elit."
-		},
-		{
-			"id": 2,
-			"name": "Luke",
-			"lastName": "Skywalker",
-			"about": "Debitis autem porro sunt nihil."
-		}
-	]
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Harry",
+      "lastName": "Potter",
+      "about": "Lorem, dolor sit amet consectetur elit."
+    },
+    {
+      "id": 2,
+      "name": "Luke",
+      "lastName": "Skywalker",
+      "about": "Debitis autem porro sunt nihil."
+    }
+  ]
 }
