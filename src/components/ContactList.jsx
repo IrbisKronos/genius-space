@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useFetch } from '../hooks/useFetch';
+import { baseURL } from '../api/api';
 
-axios.defaults.baseURL = "http://localhost:3030/";
+axios.defaults.baseURL = baseURL;
 
 export default function ContactList() {
   const [data, setData] = useState([]);
@@ -74,7 +75,7 @@ export default function ContactList() {
                 <button
                   disabled={isDelete}
                   onClick={() => deleteContact(contact.id)}                >
-                  {isDelete ? 'Loading...' : 'Delete contact'}
+                  {isDelete ? 'Loading...' : 'Delete'}
                 </button>
 
                 <button
